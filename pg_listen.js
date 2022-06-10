@@ -61,7 +61,7 @@ client.query('SELECT 1 as test')
 
 // Console log incoming notifications
 client.on('notification', msg => {
-    console.log('\nIncoming notification "', msg.channel, '" -');
+    console.log(`\nIncoming notification "${msg.channel}" -`);
     try {
         console.log(JSON.stringify(JSON.parse(msg.payload), null, "  "));
     } catch {
