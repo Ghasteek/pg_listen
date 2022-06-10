@@ -33,11 +33,14 @@ listen:
 - ```pgasync_url``` - classic postgresql connection string
 - ```listen``` - array of notifications you want to listen to
 
+## Parameters
+- ```-c path/to/config.cfg``` - optional, path to configuration file, default ```config.cfg```
+- ```-n notification1,notification2``` - optional, comma separated list of notifications to listen, default list is in config file, which will be ignored, if list is passed by this parameter
 
 ## Run
 After editing config file, start program by running
 ```
-node pg_listen -c config.conf
+node pg_listen
 ```
 After launch, you will see info about connecting and listening to notifications:
 ```
@@ -64,4 +67,6 @@ If only text is passed down by notification, it will print just that:
 Incoming notification "notification_1" -
 Text of your notification
 ```
-Hope you will enjoy this simple piece of code, that helped me at my work :) 
+
+## End
+  Hope you will enjoy this simple piece of code, that helped me at my work :) 
