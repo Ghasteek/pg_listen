@@ -8,10 +8,19 @@ const argv = require('yargs')
 		alias: 'c',
 		describe: 'path to file with configuration',
 	})
+    .option('notifications', {
+		alias: 'n',
+		describe: 'list of comma separated notifications to listen to',
+	})
 	.help()
 	.argv;
 
 var config = yaml.load(fs.readFileSync(argv.config || './config.cfg', 'utf8'));
+
+// if notifications as parameters were added, use these
+if (argv.notifications) {
+    config.listen = argv.notifications.split(',');
+}
 
 // is there configuration to DB?
 if (!config || !config.pgasync_url) {
@@ -41,7 +50,7 @@ client.query('SELECT 1 as test')
         // signing listeners for notifications
         config.listen.forEach((channel) => {
             client.query(`LISTEN ${channel}`)
-            console.log(`Listening to notifications "${channel}".`);
+            console.log(`Listening to notification "${channel}".`);
         });
         console.log('\n');
     })
