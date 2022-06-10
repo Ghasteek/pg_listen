@@ -1,0 +1,12 @@
+{
+  "name": "pg_listen",
+  "version": "1.0.0",
+  "main": "pg_listen.js",
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "pg": "^8.7.3",
+    "pg-connection-string": "^2.5.0",
+    "yargs": "^17.5.1"
+  }
+}
